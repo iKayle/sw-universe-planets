@@ -1,10 +1,23 @@
+import { useContext } from "react";
+import PlanetsContext from "../../context/PlanetsContext";
 import { TableRow } from "./TableRow";
+import { PlanetsType } from "../../typings";
+import formatDate from "../../utils/formatDate";
 
 export const Table = () => {
+  const { data, filters } = useContext(PlanetsContext);
+
+  const listData = data.filter((d: PlanetsType) => {
+    if (filters.filterByName.name) {
+      return d.name.toLowerCase().includes(filters.filterByName.name);
+    }
+    return true;
+  });
+
   return (
     <div className="flex flex-col py-2 overflow-x-auto sm:px-6 lg:px-8 ">
       <div className="overflow-x-auto border-b rounded-lg border-slate-800">
-        <table className="divide-y divide-slate-800 ">
+        <table className="w-full divide-y divide-slate-800">
           <thead className="text-white bg-slate-800/70">
             <tr className="text-xs font-semibold text-white uppercase">
               <th className="px-6 py-3">Name</th>
@@ -23,23 +36,33 @@ export const Table = () => {
             </tr>
           </thead>
           <tbody className="divide-y divide-black bg-black/50 backdrop-blur-sm">
-            <TableRow
-              name={""}
-              rotation_period={""}
-              orbital_period={""}
-              diameter={""}
-              climate={""}
-              gravity={""}
-              terrain={""}
-              surface_water={""}
-              population={""}
-              films={""}
-              created={""}
-              edited={""}
-              url={""}
-            />
+            {listData.map((d: PlanetsType) => {
+              return (
+                <TableRow
+                  key={d.name}
+                  name={d.name}
+                  rotation_period={d.rotation_period}
+                  orbital_period={d.orbital_period}
+                  diameter={d.diameter}
+                  climate={d.climate}
+                  gravity={d.gravity}
+                  terrain={d.terrain}
+                  surface_water={d.surface_water}
+                  population={d.population}
+                  films={d.films}
+                  created={formatDate(d.created)}
+                  edited={formatDate(d.edited)}
+                  url={d.url}
+                />
+              );
+            })}
           </tbody>
         </table>
+        {listData.length <= 0 && (
+          <div className="flex flex-col items-center py-2 text-2xl text-center text-white bg-none">
+            <p>No results found</p>
+          </div>
+        )}
       </div>
     </div>
   );
