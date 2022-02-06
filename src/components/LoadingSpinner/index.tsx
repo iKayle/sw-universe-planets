@@ -19,7 +19,7 @@ export const LoadingSpinner = ({
       <div
         className={`items-center space-y-2 text-xl bg-transparent text-center ${color}`}
       >
-        <p>Carregando...</p>
+        <p>Loading...</p>
         <span>{description}</span>
       </div>
     </div>
