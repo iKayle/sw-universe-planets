@@ -12,18 +12,17 @@ export const HomeScreen = () => {
   return (
     <>
       <TitleNavBar title="Planets Star Wars" />
-      <div className="flex flex-col space-y-5">
-        <div className="flex flex-row mx-10 space-x-5">
-          <FilterSortBy />
-          <PlanetsFilters />
-        </div>
 
-        {loading ? (
-          <LoadingSpinner description="This may take a few seconds, please do not close this page." />
-        ) : (
-          <Table />
-        )}
+      <div className="flex flex-row px-2 space-x-5 overflow-x-auto md:overflow-x-clip md:px-10">
+        <FilterSortBy />
+        <PlanetsFilters />
       </div>
+
+      {loading ? (
+        <LoadingSpinner description="This may take a few seconds, please do not close this page." />
+      ) : (
+        <Table />
+      )}
     </>
   );
 };
