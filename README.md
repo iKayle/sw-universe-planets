@@ -15,7 +15,6 @@ Essas são as branches disponíveis nesse projeto
 | main                  | updated               |
 | develop               | updated with main     |
 
-
 <br />
 <br />
 
@@ -44,10 +43,6 @@ Essa é a estrutura de diretórios dentro da pasta src
 - components
 - constants
 - context
-- pages
-- services
-- lib
-- mock
 - pages
 - services
 - typings
