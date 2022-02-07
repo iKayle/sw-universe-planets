@@ -3,11 +3,11 @@ import PlanetsContext from "../../context/PlanetsContext";
 import { InputFilter } from "./InputFilter";
 import { InputFilterSelect } from "./InputFilterSelect";
 import { ButtonRemove } from "../Buttons/ButtonRemove";
+import { ButtonCompare } from "../Buttons/Button/ButtonCompare";
 import {
   COLUMN_OPTIONS,
   COMPARISON_OPTIONS,
 } from "../../constants/optionsNumericValues";
-import { ButtonCompare } from "../Buttons/Button/ButtonCompare";
 
 export const PlanetsFilters = () => {
   const { filters, setFilters } = useContext(PlanetsContext);
@@ -35,7 +35,7 @@ export const PlanetsFilters = () => {
   };
 
   return (
-    <div className="flex flex-row mx-10 space-x-5">
+    <div className="flex flex-row space-x-5">
       <InputFilter
         label="Search planets"
         placeholder="Search by name"
@@ -52,6 +52,7 @@ export const PlanetsFilters = () => {
           onChange={(e) => setColumn(e.target.value)}
         />
         <InputFilterSelect
+          value={comparison}
           placeholder="Select comparison"
           options={COMPARISON_OPTIONS}
           onChange={(e) => setComparison(e.target.value)}
