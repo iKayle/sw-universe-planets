@@ -1,34 +1,109 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Star Wars - Kayle
 
-## Getting Started
+Projeto realizado para integrar a api do universo de Star Wars, listando os planetas com filtros usando React para a construção do front-end e Context API e Hooks para controlar os estados globais.
+- [NextJS](https://nextjs.org/)
+- [React](https://reactjs.org/)
+<br />
+<br />
 
-First, run the development server:
+## Branches
 
-```bash
-npm run dev
+Essas são as branches disponíveis nesse projeto
+
+| Branch                | Status                |
+| --------------------- | --------------------- |
+| main                  | updated               |
+| develop               | updated with main     |
+
+
+<br />
+<br />
+
+## Installation
+
+Recomendo utilizar o package manager yarn, mas é possível utilizar o npm
+
+```sh
+yarn
 # or
-yarn dev
+npm install
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+<br />
 
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
+# Architecture Patterns
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
+Esses foram os padões estruturais que eu utilizei ao longo desse projeto
+<br />
+<br />
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+## Directory Schema
 
-## Learn More
+Essa é a estrutura de diretórios dentro da pasta src
 
-To learn more about Next.js, take a look at the following resources:
+- components
+- constants
+- context
+- pages
+- services
+- lib
+- mock
+- pages
+- services
+- typings
+- utils
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+<br />
+<br />
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+## State Management
 
-## Deploy on Vercel
+Essa aplicação utiliza Context API para gerenciamento de estados globais.
+Para adicionar um novo conexto ao seu aplicativo, basta criar um seguindo o code style e exportar o ContextProvider e o useContext dentro do seu index de contexto.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+<br />
+<br />
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+## Style System
+
+Esta aplicação usa a estrutura TailwindCSS para estilizar seus componentes. O TailwindCSS é um framework CSS de primeira utilidade embalado com classes como flex, pt-4, text-center e rotate-90 que podem ser compostas para construir qualquer design, diretamente em sua marcação.
+
+Eu recomendo que você use o tailwind em seus projetos, pois economiza muito tempo na criação de componentes e layouts para sua aplicação.
+
+Você pode aprender mais sobre essa abordagem e ver todos os seus recursos no [official tailwind website](https://tailwindcss.com)
+
+<br />
+<br />
+
+## Package Commands
+
+Below are described all commands available in the package.json file.
+
+```sh
+yarn dev # Inicia a aplicação no modo de desenvolvedor.
+yarn build # Cria um pacote de compilação e exporta como uma versão estática.
+yarn start # Inicia o aplicativo com a versão compilada.
+yarn lint # Aplica todas as regras de lint definidas em prettier e eslint.
+```
+
+<br />
+<br />
+
+## Default Port
+
+Este projeto usa a porta padrão PORT 3000
+
+```sh
+127.0.0.1:3000
+# or
+http://localhost:3000
+```
+
+<br />
+<br />
+
+## Copyright
+
+MIT License, Free Software
+
+Feito por Kayle ❤️
