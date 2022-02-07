@@ -15,6 +15,10 @@ const PlanetsProvider = ({ children }: PlanetsProviderProps) => {
       name: "",
     },
     filterByNumericValues: [],
+    order: {
+      column: "",
+      sort: "ASC",
+    },
   });
 
   useEffect(() => {

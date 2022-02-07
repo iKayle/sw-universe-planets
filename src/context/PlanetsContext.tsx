@@ -11,6 +11,10 @@ interface PlanetsContextProps {
       comparison: string;
       value: string;
     }[];
+    order: {
+      column: string;
+      sort: string;
+    };
   };
   setFilters: any;
 }
@@ -29,6 +33,10 @@ const PlanetsContext = createContext<PlanetsContextProps>({
         value: "",
       },
     ],
+    order: {
+      column: "",
+      sort: "",
+    },
   },
   setFilters: () => {},
 });
