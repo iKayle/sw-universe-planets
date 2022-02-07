@@ -14,6 +14,7 @@ const PlanetsProvider = ({ children }: PlanetsProviderProps) => {
     filterByName: {
       name: "",
     },
+    filterByNumericValues: [],
   });
 
   useEffect(() => {

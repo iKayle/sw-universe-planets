@@ -16,7 +16,7 @@ export const TableRow = ({
   url,
 }: PlanetsType) => {
   return (
-    <tr className="text-sm font-semibold text-gray-200">
+    <tr className="text-sm font-semibold text-center text-gray-200">
       <td className="p-2 ">{name}</td>
       <td className="p-2 ">{rotation_period}</td>
       <td className="p-2 ">{orbital_period}</td>

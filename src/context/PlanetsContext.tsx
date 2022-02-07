@@ -1,5 +1,4 @@
 import { createContext } from "react";
-
 interface PlanetsContextProps {
   data: any;
   loading: boolean;
@@ -7,6 +6,11 @@ interface PlanetsContextProps {
     filterByName: {
       name: string;
     };
+    filterByNumericValues: {
+      column: string;
+      comparison: string;
+      value: string;
+    }[];
   };
   setFilters: any;
 }
@@ -18,6 +22,13 @@ const PlanetsContext = createContext<PlanetsContextProps>({
     filterByName: {
       name: "",
     },
+    filterByNumericValues: [
+      {
+        column: "",
+        comparison: "",
+        value: "",
+      },
+    ],
   },
   setFilters: () => {},
 });

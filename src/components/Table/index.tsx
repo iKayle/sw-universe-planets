@@ -3,13 +3,26 @@ import PlanetsContext from "../../context/PlanetsContext";
 import { TableRow } from "./TableRow";
 import { PlanetsType } from "../../typings";
 import formatDate from "../../utils/formatDate";
+import { COMPARISON } from "../../constants/optionsNumericValues";
 
 export const Table = () => {
   const { data, filters } = useContext(PlanetsContext);
 
-  const listData = data.filter((d: PlanetsType) => {
+  const listData = data.filter((d: { [x: string]: string; name: string }) => {
     if (filters.filterByName.name) {
-      return d.name.toLowerCase().includes(filters.filterByName.name);
+      return d.name
+        .toLowerCase()
+        .includes(filters.filterByName.name.toLowerCase());
+    } else if (filters.filterByNumericValues.length > 0) {
+      return filters.filterByNumericValues.every((f) => {
+        if (f.comparison === COMPARISON.GREATER_THAN) {
+          return Number(d[f.column]) > Number(f.value);
+        } else if (f.comparison === COMPARISON.LESS_THAN) {
+          return Number(d[f.column]) < Number(f.value);
+        } else if (f.comparison === COMPARISON.EQUAL) {
+          return Number(d[f.column]) === Number(f.value);
+        }
+      });
     }
     return true;
   });
@@ -29,7 +42,7 @@ export const Table = () => {
               <th className="px-6 py-3">Terrain</th>
               <th className="px-6 py-3">Surface Water</th>
               <th className="px-6 py-3">Population</th>
-              <th className="px-6 py-3 ">Films</th>
+              <th className="px-6 py-3">Films</th>
               <th className="px-6 py-3">Created</th>
               <th className="px-6 py-3">Edited</th>
               <th className="px-6 py-3">URL</th>
