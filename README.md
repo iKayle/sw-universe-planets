@@ -72,7 +72,7 @@ Você pode aprender mais sobre essa abordagem e ver todos os seus recursos no [o
 
 ## Package Commands
 
-Below are described all commands available in the package.json file.
+Abaixo estão descritos todos os comandos disponíveis no arquivo package.json.
 
 ```sh
 yarn dev # Inicia a aplicação no modo de desenvolvedor.
