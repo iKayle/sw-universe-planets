@@ -35,7 +35,7 @@ export const PlanetsFilters = () => {
   };
 
   return (
-    <div className="flex flex-row space-x-5">
+    <div className="flex flex-col md:space-x-5 md:flex-row">
       <InputFilter
         label="Search planets"
         placeholder="Search by name"
@@ -73,7 +73,7 @@ export const PlanetsFilters = () => {
       {filters.filterByNumericValues.map((f) => {
         return (
           <div
-            className="flex flex-col items-center justify-center"
+            className="flex flex-col items-center justify-center p-1"
             key={f.column}
           >
             <ButtonRemove
