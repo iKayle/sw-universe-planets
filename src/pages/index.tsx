@@ -1,8 +1,14 @@
+import { MainLayout } from "../components/MainLayout";
+import { HomeScreen } from "../components/screens/HomeScreen";
+import PlanetsProvider from "../context/PlanetsProvider";
+
 const Home = () => {
   return (
-    <div className="flex items-center justify-center min-h-screen">
-      Hello World
-    </div>
+    <PlanetsProvider>
+      <MainLayout>
+        <HomeScreen />
+      </MainLayout>
+    </PlanetsProvider>
   );
 };
 
