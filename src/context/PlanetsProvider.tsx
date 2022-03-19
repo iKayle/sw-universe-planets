@@ -9,6 +9,7 @@ interface PlanetsProviderProps {
 const PlanetsProvider = ({ children }: PlanetsProviderProps) => {
   const [data, setData] = useState([]);
   const [loading, setLoading] = useState<boolean>(false);
+  const [page, setPage] = useState(1);
 
   const [filters, setFilters] = useState({
     filterByName: {
@@ -22,20 +23,30 @@ const PlanetsProvider = ({ children }: PlanetsProviderProps) => {
   });
 
   useEffect(() => {
-    setLoading(true);
-    getAllPlanets()
+    data?.length === 0 && setLoading(true);
+    getAllPlanets(page)
       .then((planets) => {
-        setData(planets.data.results);
+        setData(planets.data);
         setLoading(false);
       })
       .catch((err) => {
         setLoading(false);
         console.error("Ops! Ocorreu um erro" + err);
       });
-  }, []);
+  }, [page]);
 
   return (
-    <PlanetsContext.Provider value={{ data, loading, filters, setFilters }}>
+    <PlanetsContext.Provider
+      value={{
+        data,
+        loading,
+        filters,
+        setFilters,
+        page,
+        setPage,
+        setData,
+      }}
+    >
       {children}
     </PlanetsContext.Provider>
   );
