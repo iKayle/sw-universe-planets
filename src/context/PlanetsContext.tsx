@@ -17,6 +17,9 @@ interface PlanetsContextProps {
     };
   };
   setFilters: any;
+  page: number;
+  setPage: any;
+  setData: any;
 }
 
 const PlanetsContext = createContext<PlanetsContextProps>({
@@ -39,6 +42,9 @@ const PlanetsContext = createContext<PlanetsContextProps>({
     },
   },
   setFilters: () => {},
+  page: 1,
+  setPage: () => {},
+  setData: () => {},
 });
 
 export default PlanetsContext;

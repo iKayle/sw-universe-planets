@@ -11,11 +11,11 @@ export const Table = () => {
     filters: { filterByName, filterByNumericValues, order },
   } = useContext(PlanetsContext);
 
-  const listDataByName = data.filter((d: { name: string }) =>
+  const listDataByName = data?.results?.filter((d: { name: string }) =>
     d.name.toLowerCase().includes(filterByName.name.toLowerCase())
   );
 
-  const listDataFiltered = listDataByName.filter(
+  const listDataFiltered = listDataByName?.filter(
     (d: { [x: string]: string }) => {
       if (filterByNumericValues.length > 0) {
         return filterByNumericValues.every((f) => {
@@ -32,7 +32,7 @@ export const Table = () => {
     }
   );
 
-  const sortListFilters = listDataFiltered.sort(
+  const sortListFilters = listDataFiltered?.sort(
     (a: { [x: string]: any }, b: { [x: string]: any }) => {
       if (order.sort === "ASC") {
         return Number(a[order.column]) > Number(b[order.column]) ? 1 : -1;
@@ -43,7 +43,7 @@ export const Table = () => {
   );
 
   return (
-    <div className="flex flex-col py-2 overflow-x-auto sm:px-6 lg:px-8 ">
+    <div className="flex flex-col py-2 overflow-x-auto sm:px-6 lg:px-8">
       <div className="overflow-x-auto border-b rounded-lg border-slate-800">
         <table className="w-full divide-y divide-slate-800">
           <thead className="text-white bg-slate-800/70">
@@ -64,7 +64,7 @@ export const Table = () => {
             </tr>
           </thead>
           <tbody className="divide-y divide-black bg-black/50 backdrop-blur-sm">
-            {sortListFilters.map((d: PlanetsType) => {
+            {sortListFilters?.map((d: PlanetsType) => {
               return (
                 <TableRow
                   key={d.name}
@@ -86,7 +86,7 @@ export const Table = () => {
             })}
           </tbody>
         </table>
-        {listDataFiltered.length <= 0 && (
+        {listDataFiltered?.length <= 0 && (
           <div className="flex flex-col items-center py-2 text-2xl text-center text-white bg-none">
             <p>No results found</p>
           </div>
